@@ -1,6 +1,6 @@
 using System;
 
-namespace LymcWeb.Models
+namespace LmycWeb.Models
 {
     public class ErrorViewModel
     {

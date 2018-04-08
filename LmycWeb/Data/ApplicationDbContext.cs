@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using LymcWeb.Models;
+using LmycWeb.Models;
 
-namespace LymcWeb.Data
+namespace LmycWeb.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -22,5 +22,9 @@ namespace LymcWeb.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
+        public DbSet<Boat> Boat { get; set; }
+
+        public DbSet<Reservation> Reservation { get; set; }
     }
 }

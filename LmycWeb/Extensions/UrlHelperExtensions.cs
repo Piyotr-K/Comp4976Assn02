@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LymcWeb.Controllers;
+using LmycWeb.Controllers;
 
 namespace Microsoft.AspNetCore.Mvc
 {

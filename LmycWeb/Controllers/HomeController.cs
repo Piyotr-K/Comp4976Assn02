@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using LymcWeb.Models;
+using LmycWeb.Models;
 
-namespace LymcWeb.Controllers
+namespace LmycWeb.Controllers
 {
     public class HomeController : Controller
     {

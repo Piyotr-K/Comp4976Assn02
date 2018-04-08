@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using LymcWeb.Models;
-using LymcWeb.Models.AccountViewModels;
-using LymcWeb.Services;
+using LmycWeb.Models;
+using LmycWeb.Models.AccountViewModels;
+using LmycWeb.Services;
 
-namespace LymcWeb.Controllers
+namespace LmycWeb.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

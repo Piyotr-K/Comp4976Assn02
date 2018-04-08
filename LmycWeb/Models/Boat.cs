@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LymcWeb.Models
+namespace LmycWeb.Models
 {
     public class Boat
     {
@@ -25,7 +25,7 @@ namespace LymcWeb.Models
         [ScaffoldColumn(false)]
         [DataType(DataType.Date)]
         [Display(Name = "Date Created")]
-        public DateTime CreationDate { get; set; } = DateTime.UtcNow;
+        public DateTime RecordCreationDate { get; set; } = DateTime.UtcNow;
 
         [ForeignKey("User")]
         [ScaffoldColumn(false)]

@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using LymcWeb.Data;
-using LymcWeb.Models;
-using LymcWeb.Services;
+using LmycWeb.Data;
+using LmycWeb.Models;
+using LmycWeb.Services;
 
-namespace LymcWeb
+namespace LmycWeb
 {
     public class Startup
     {
@@ -40,7 +40,7 @@ namespace LymcWeb
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +63,8 @@ namespace LymcWeb
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DummyData.Initialize(context);
         }
     }
 }

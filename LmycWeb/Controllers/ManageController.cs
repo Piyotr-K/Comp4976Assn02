@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using LymcWeb.Models;
-using LymcWeb.Models.ManageViewModels;
-using LymcWeb.Services;
+using LmycWeb.Models;
+using LmycWeb.Models.ManageViewModels;
+using LmycWeb.Services;
 
-namespace LymcWeb.Controllers
+namespace LmycWeb.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
@@ -522,7 +522,7 @@ namespace LymcWeb.Controllers
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("LymcWeb"),
+                _urlEncoder.Encode("LmycWeb"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }
