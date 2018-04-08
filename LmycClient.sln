@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LmycClient", "LmycClient\LmycClient.csproj", "{B92FC223-726D-4566-B07F-69A1E5861098}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LmycClient", "LmycClient\LmycClient.csproj", "{B92FC223-726D-4566-B07F-69A1E5861098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LmycWeb", "LymcWeb\LmycWeb.csproj", "{17DBDFC9-E1CA-4296-9F73-BF99375480D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LmycWeb", "LmycWeb\LmycWeb.csproj", "{9936F877-5E25-4575-8121-E71D9FC42085}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{B92FC223-726D-4566-B07F-69A1E5861098}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B92FC223-726D-4566-B07F-69A1E5861098}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B92FC223-726D-4566-B07F-69A1E5861098}.Release|Any CPU.Build.0 = Release|Any CPU
-		{17DBDFC9-E1CA-4296-9F73-BF99375480D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17DBDFC9-E1CA-4296-9F73-BF99375480D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17DBDFC9-E1CA-4296-9F73-BF99375480D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17DBDFC9-E1CA-4296-9F73-BF99375480D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9936F877-5E25-4575-8121-E71D9FC42085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9936F877-5E25-4575-8121-E71D9FC42085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9936F877-5E25-4575-8121-E71D9FC42085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9936F877-5E25-4575-8121-E71D9FC42085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
