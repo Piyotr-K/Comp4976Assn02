@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LmycClient", "LmycClient\LmycClient.csproj", "{B92FC223-726D-4566-B07F-69A1E5861098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LymcWeb", "LymcWeb\LymcWeb.csproj", "{17DBDFC9-E1CA-4296-9F73-BF99375480D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LmycWeb", "LymcWeb\LmycWeb.csproj", "{17DBDFC9-E1CA-4296-9F73-BF99375480D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
