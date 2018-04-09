@@ -48,7 +48,7 @@ namespace LmycWeb.Controllers
         // GET: Boats/Create
         public IActionResult Create()
         {
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["CreatedBy"] = new SelectList(_context.ApplicationUser, "Id", "Id");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace LmycWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "Id", "Id", boat.CreatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.ApplicationUser, "Id", "Id", boat.CreatedBy);
             return View(boat);
         }
 
@@ -82,7 +82,7 @@ namespace LmycWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "Id", "Id", boat.CreatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.ApplicationUser, "Id", "Id", boat.CreatedBy);
             return View(boat);
         }
 
@@ -118,7 +118,7 @@ namespace LmycWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "Id", "Id", boat.CreatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.ApplicationUser, "Id", "Id", boat.CreatedBy);
             return View(boat);
         }
 

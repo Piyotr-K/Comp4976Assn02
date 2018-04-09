@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace LmycWeb.Data.Migrations
+namespace LmycWeb.Migrations
 {
-    public partial class Updated : Migration
+    public partial class Rolesupdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

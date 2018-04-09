@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LmycWeb.Data;
 using LmycWeb.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace LmycWeb.Controllers
 {
-    [Authorize]
     public class ReservationsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -52,7 +50,7 @@ namespace LmycWeb.Controllers
         public IActionResult Create()
         {
             ViewData["BoatId"] = new SelectList(_context.Boat, "BoatId", "BoatName");
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["CreatedBy"] = new SelectList(_context.ApplicationUser, "Id", "Id");
             return View();
         }
 
@@ -70,7 +68,7 @@ namespace LmycWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BoatId"] = new SelectList(_context.Boat, "BoatId", "BoatName", reservation.BoatId);
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "Id", "Id", reservation.CreatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.ApplicationUser, "Id", "Id", reservation.CreatedBy);
             return View(reservation);
         }
 
@@ -88,7 +86,7 @@ namespace LmycWeb.Controllers
                 return NotFound();
             }
             ViewData["BoatId"] = new SelectList(_context.Boat, "BoatId", "BoatName", reservation.BoatId);
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "Id", "Id", reservation.CreatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.ApplicationUser, "Id", "Id", reservation.CreatedBy);
             return View(reservation);
         }
 
@@ -125,7 +123,7 @@ namespace LmycWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BoatId"] = new SelectList(_context.Boat, "BoatId", "BoatName", reservation.BoatId);
-            ViewData["CreatedBy"] = new SelectList(_context.Users, "Id", "Id", reservation.CreatedBy);
+            ViewData["CreatedBy"] = new SelectList(_context.ApplicationUser, "Id", "Id", reservation.CreatedBy);
             return View(reservation);
         }
 

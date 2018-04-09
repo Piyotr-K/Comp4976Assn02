@@ -11,24 +11,24 @@ using LmycWeb.Models;
 namespace LmycWeb.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Boatsapi")]
-    public class BoatsapiController : Controller
+    [Route("api/BoatsApi")]
+    public class BoatsApiController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public BoatsapiController(ApplicationDbContext context)
+        public BoatsApiController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Boatsapi
+        // GET: api/BoatsApi
         [HttpGet]
         public IEnumerable<Boat> GetBoat()
         {
             return _context.Boat;
         }
 
-        // GET: api/Boatsapi/5
+        // GET: api/BoatsApi/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBoat([FromRoute] int id)
         {
@@ -47,7 +47,7 @@ namespace LmycWeb.Controllers
             return Ok(boat);
         }
 
-        // PUT: api/Boatsapi/5
+        // PUT: api/BoatsApi/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBoat([FromRoute] int id, [FromBody] Boat boat)
         {
@@ -82,7 +82,7 @@ namespace LmycWeb.Controllers
             return NoContent();
         }
 
-        // POST: api/Boatsapi
+        // POST: api/BoatsApi
         [HttpPost]
         public async Task<IActionResult> PostBoat([FromBody] Boat boat)
         {
@@ -97,7 +97,7 @@ namespace LmycWeb.Controllers
             return CreatedAtAction("GetBoat", new { id = boat.BoatId }, boat);
         }
 
-        // DELETE: api/Boatsapi/5
+        // DELETE: api/BoatsApi/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBoat([FromRoute] int id)
         {

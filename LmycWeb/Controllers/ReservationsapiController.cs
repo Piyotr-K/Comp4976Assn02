@@ -11,24 +11,24 @@ using LmycWeb.Models;
 namespace LmycWeb.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Reservationsapi")]
-    public class ReservationsapiController : Controller
+    [Route("api/ReservationsApi")]
+    public class ReservationsApiController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ReservationsapiController(ApplicationDbContext context)
+        public ReservationsApiController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Reservationsapi
+        // GET: api/ReservationsApi
         [HttpGet]
         public IEnumerable<Reservation> GetReservation()
         {
             return _context.Reservation;
         }
 
-        // GET: api/Reservationsapi/5
+        // GET: api/ReservationsApi/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetReservation([FromRoute] int id)
         {
@@ -47,7 +47,7 @@ namespace LmycWeb.Controllers
             return Ok(reservation);
         }
 
-        // PUT: api/Reservationsapi/5
+        // PUT: api/ReservationsApi/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutReservation([FromRoute] int id, [FromBody] Reservation reservation)
         {
@@ -82,7 +82,7 @@ namespace LmycWeb.Controllers
             return NoContent();
         }
 
-        // POST: api/Reservationsapi
+        // POST: api/ReservationsApi
         [HttpPost]
         public async Task<IActionResult> PostReservation([FromBody] Reservation reservation)
         {
@@ -97,7 +97,7 @@ namespace LmycWeb.Controllers
             return CreatedAtAction("GetReservation", new { id = reservation.ReservationId }, reservation);
         }
 
-        // DELETE: api/Reservationsapi/5
+        // DELETE: api/ReservationsApi/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReservation([FromRoute] int id)
         {

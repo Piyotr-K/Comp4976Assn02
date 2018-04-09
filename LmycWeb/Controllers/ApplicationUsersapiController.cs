@@ -11,24 +11,24 @@ using LmycWeb.Models;
 namespace LmycWeb.Controllers
 {
     [Produces("application/json")]
-    [Route("api/ApplicationUsersapi")]
-    public class ApplicationUsersapiController : Controller
+    [Route("api/ApplicationUsersApi")]
+    public class ApplicationUsersApiController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ApplicationUsersapiController(ApplicationDbContext context)
+        public ApplicationUsersApiController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/ApplicationUsersapi
+        // GET: api/ApplicationUsersApi
         [HttpGet]
         public IEnumerable<ApplicationUser> GetApplicationUser()
         {
             return _context.ApplicationUser;
         }
 
-        // GET: api/ApplicationUsersapi/5
+        // GET: api/ApplicationUsersApi/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetApplicationUser([FromRoute] string id)
         {
@@ -47,7 +47,7 @@ namespace LmycWeb.Controllers
             return Ok(applicationUser);
         }
 
-        // PUT: api/ApplicationUsersapi/5
+        // PUT: api/ApplicationUsersApi/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutApplicationUser([FromRoute] string id, [FromBody] ApplicationUser applicationUser)
         {
@@ -82,7 +82,7 @@ namespace LmycWeb.Controllers
             return NoContent();
         }
 
-        // POST: api/ApplicationUsersapi
+        // POST: api/ApplicationUsersApi
         [HttpPost]
         public async Task<IActionResult> PostApplicationUser([FromBody] ApplicationUser applicationUser)
         {
@@ -97,7 +97,7 @@ namespace LmycWeb.Controllers
             return CreatedAtAction("GetApplicationUser", new { id = applicationUser.Id }, applicationUser);
         }
 
-        // DELETE: api/ApplicationUsersapi/5
+        // DELETE: api/ApplicationUsersApi/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteApplicationUser([FromRoute] string id)
         {

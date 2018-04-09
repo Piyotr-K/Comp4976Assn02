@@ -1,11 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace LmycWeb.Data.Migrations
+namespace LmycWeb.Migrations
 {
-    public partial class AddedReservations : Migration
+    public partial class AddReservationsandUserupdates : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +13,7 @@ namespace LmycWeb.Data.Migrations
                 columns: table => new
                 {
                     ReservationId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("Sqlite:Autoincrement", true),
                     BoatId = table.Column<int>(nullable: false),
                     CreatedBy = table.Column<string>(nullable: true),
                     EndDate = table.Column<DateTime>(nullable: false),
