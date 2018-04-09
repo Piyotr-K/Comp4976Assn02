@@ -10,7 +10,7 @@ namespace LmycWeb.Data
     {
         public static void Initialize(ApplicationDbContext db)
         {
-            //InitializeBoats(db);
+            InitializeBoats(db);
         }
 
         public static void InitializeBoats(ApplicationDbContext db)
