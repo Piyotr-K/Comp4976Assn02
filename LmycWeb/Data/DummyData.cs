@@ -18,7 +18,7 @@ namespace LmycWeb.Data
         public static void InitializeUsers(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
         {
 
-            if (!db.Users.Any(u => u.UserName == "c"))
+            if (!db.Users.Any(u => u.UserName == "m@m.m"))
             {
                 var user = new ApplicationUser
                 {
