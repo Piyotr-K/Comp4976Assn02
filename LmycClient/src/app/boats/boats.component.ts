@@ -1,6 +1,5 @@
 import {BoatsService} from './../service/boats.service';
-
-import { Component, inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import {Boat} from '../Models/Boat';
 
 @Component({

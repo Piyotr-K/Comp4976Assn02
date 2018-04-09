@@ -1,6 +1,6 @@
-<h1>These are the boats data from server</h1>
+<h1 style="color: red;">These are the boats data from server</h1>
 
-<table class='table' *ngIf="boats">
+<table class='table' *ngIf="boats" border="1">
   <thead>
     <tr>
       <th>BoatID</th>
@@ -8,16 +8,18 @@
       <th>LengthInFeet</th>
       <th>Make</th>
       <th>Year</th>
-      <th>Record Creation Date</th>
+      <br>
+      <th>RecordCreationDate</th>
     </tr>
   </thead>
   <tbody>
-    <tr *NgFor="let boat of boats">
+    <tr *ngFor="let boat of boats">
       <td>{{boat.boatId}}</td>
       <td>{{boat.boatName}}</td>
       <td>{{boat.lengthInFeet}}</td>
       <td>{{boat.make}}</td>
       <td>{{boat.year}}</td>
+      <br>
       <td>{{boat.recordCreationDate}}</td>
     </tr>
   </tbody>

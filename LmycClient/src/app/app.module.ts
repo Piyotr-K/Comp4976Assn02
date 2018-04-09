@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms';
-
+import {HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { BoatsComponent } from './boats/boats.component';
-
+import {BoatsService} from './service/boats.service';
 
 @NgModule({
   declarations: [
@@ -13,9 +13,12 @@ import { BoatsComponent } from './boats/boats.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    BoatsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
