@@ -27,6 +27,6 @@ namespace LmycWeb.Data
 
         public DbSet<Reservation> Reservation { get; set; }
 
-        public DbSet<RoleManageModel> RoleManageModel { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
     }
 }
