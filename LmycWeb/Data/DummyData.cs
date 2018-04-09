@@ -3,14 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LmycWeb.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace LmycWeb.Data
 {
     public class DummyData
     {
-        public static void Initialize(ApplicationDbContext db)
+        public static void Initialize(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
         {
             InitializeBoats(db);
+            InitializeUsers(db, userManager);
+        }
+
+        public static void InitializeUsers(ApplicationDbContext db, UserManager<ApplicationUser> userManager)
+        {
+
+            if (!db.Users.Any(u => u.UserName == "c"))
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = "m@m.m",
+                    Email = "m@m.m",
+                    FirstName = "Ronno",
+                    LastName = "Tran",
+                    Street = "7777 Seven Ave",
+                    City = "London",
+                    Province = "BC",
+                    PostalCode = "Y6T 5P9",
+                    Country = "Canada",
+                    MobileNumber = "604-002-5427",
+                    SailingExperience = "Beginner"
+                };
+
+                userManager.CreateAsync(user, "P@$$w0rd");
+
+                userManager.AddToRoleAsync(user, "Member");
+            }
         }
 
         public static void InitializeBoats(ApplicationDbContext db)

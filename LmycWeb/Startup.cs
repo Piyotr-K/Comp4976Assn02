@@ -80,7 +80,7 @@ namespace LmycWeb
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context, IServiceProvider serviceProvider)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ApplicationDbContext context, IServiceProvider serviceProvider, UserManager<ApplicationUser> userManager)
         {
             if (env.IsDevelopment())
             {
@@ -106,7 +106,7 @@ namespace LmycWeb
 
             CreateRoles(serviceProvider).Wait();
 
-            DummyData.Initialize(context);
+            DummyData.Initialize(context, userManager);
         }
     }
 }
