@@ -23,5 +23,34 @@ namespace LmycWeb.Models.AccountViewModels
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [MaxLength(64)]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(64)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        public string Street { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string Province { get; set; }
+
+        [Required]
+        [Display(Name = "Postal Code")]
+        public string PostalCode { get; set; }
+
+        [Required]
+        public string Country { get; set; }
+
+        public string MobileNumber { get; set; }
+        public string SailingExperience { get; set; }
     }
 }

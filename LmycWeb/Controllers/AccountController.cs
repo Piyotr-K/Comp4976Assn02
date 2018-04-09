@@ -220,7 +220,7 @@ namespace LmycWeb.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, City = model.City, Street = model.Street, PostalCode = model.PostalCode, Country = model.Country, MobileNumber = model.MobileNumber, SailingExperience = model.SailingExperience, Province = model.Province};
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
