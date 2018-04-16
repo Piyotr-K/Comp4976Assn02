@@ -11,6 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using LmycWeb.Data;
 using LmycWeb.Models;
 using LmycWeb.Services;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 
 namespace LmycWeb
 {
@@ -30,7 +34,7 @@ namespace LmycWeb
             var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             string[] roleNames = { "Admin", "Member" };
             IdentityResult roleResult;
-            
+
             foreach (var roleName in roleNames)
             {
                 //creating the roles and seeding them to the database
@@ -40,17 +44,17 @@ namespace LmycWeb
                     roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
                 }
             }
-            
+
             //creating a super user who could maintain the web app
             var poweruser = new ApplicationUser
             {
                 UserName = Configuration.GetSection("UserSettings")["UserEmail"],
                 Email = Configuration.GetSection("UserSettings")["UserEmail"]
             };
-            
+
             string UserPassword = Configuration.GetSection("UserSettings")["UserPassword"];
             var _user = await UserManager.FindByEmailAsync(Configuration.GetSection("UserSettings")["UserEmail"]);
-            
+
             if (_user == null)
             {
                 var createPowerUser = await UserManager.CreateAsync(poweruser, UserPassword);
@@ -58,14 +62,17 @@ namespace LmycWeb
                 {
                     //here we tie the new user to the "Admin" role 
                     await UserManager.AddToRoleAsync(poweruser, "Admin");
-                    
-                    }
+
+                }
             }
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -76,7 +83,25 @@ namespace LmycWeb
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
+            services.AddMvc().
+                AddViewLocalization(
+                    LanguageViewLocationExpanderFormat.Suffix,
+                    opts => { opts.ResourcesPath = "Resources"; })
+                .AddDataAnnotationsLocalization();
+
+            services.Configure<RequestLocalizationOptions>(
+                opts =>
+                {
+                    var supportedCultures = new List<CultureInfo> {
+                        new CultureInfo("en"),
+                        new CultureInfo("en-US"),
+                        new CultureInfo("zh-CN")
+                    };
+
+                    opts.DefaultRequestCulture = new RequestCulture("en-US");
+                    opts.SupportedCultures = supportedCultures;
+                    opts.SupportedUICultures = supportedCultures;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -94,6 +119,10 @@ namespace LmycWeb
             }
 
             app.UseStaticFiles();
+
+            var options =
+                app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
 
             app.UseAuthentication();
 

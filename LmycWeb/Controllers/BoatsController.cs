@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LmycWeb.Data;
 using LmycWeb.Models;
+using Microsoft.Extensions.Localization;
 
 namespace LmycWeb.Controllers
 {
@@ -14,14 +15,18 @@ namespace LmycWeb.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        public BoatsController(ApplicationDbContext context)
+        private readonly IStringLocalizer<BoatsController> _localizer;
+
+        public BoatsController(ApplicationDbContext context, IStringLocalizer<BoatsController> localizer)
         {
             _context = context;
+            _localizer = localizer;
         }
 
         // GET: Boats
         public async Task<IActionResult> Index()
         {
+            ViewData["Message"] = _localizer["Hello"];
             var applicationDbContext = _context.Boat.Include(b => b.User);
             return View(await applicationDbContext.ToListAsync());
         }
